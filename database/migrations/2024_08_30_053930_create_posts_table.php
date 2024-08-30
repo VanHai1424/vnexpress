@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('desc');
-            $table->string('image');
+            $table->string('poster');
             $table->text('content');
             $table->foreignIdFor(Category::class)->constrained();
             $table->timestamps();
