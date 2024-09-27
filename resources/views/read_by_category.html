@@ -4,8 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <link rel="stylesheet" href="../css/home.css" />
         <link rel="stylesheet" href="../css/app.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -16,6 +18,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+        }
+    </style>
     <body>
         <div class="container-xl">
             <!-- Phần header -->
@@ -287,6 +295,19 @@
 
             <!-- Main home -->
                 <div class="mt-[28px] mx-auto w-[1100px]">
+                    <!-- Nav category -->
+                    <div class="flex items-baseline">
+                        <h2 class="py-4 mr-3"><a class="w-full h-full text-[#4f4f4f] hover:text-[#087cce] font-bold text-[28px]" href="">Kinh doanh</a></h2>
+                        <ul class="flex text-[#626262]">
+                            <li class="py-4 mx-3"><a class="w-full h-full hover:text-[#087cce] font-bold" href="">Quốc tế</a></li>
+                            <li class="py-4 mx-3"><a class="w-full h-full hover:text-[#087cce] font-bold" href="">Danh nghiệp</a></li>
+                            <li class="py-4 mx-3"><a class="w-full h-full hover:text-[#087cce] font-bold" href="">Chứng khoán</a></li>
+                            <li class="py-4 mx-3"><a class="w-full h-full hover:text-[#087cce] font-bold" href="">Ebank</a></li>
+                            <li class="py-4 mx-3"><a class="w-full h-full hover:text-[#087cce] font-bold" href="">Vĩ mô</a></li>
+                            <li class="py-4 mx-3"><a class="w-full h-full hover:text-[#087cce] font-bold" href="">Tiền của tôi</a></li>
+                            <li class="py-4 ml-3"><a class="w-full h-full hover:text-[#087cce] font-bold" href="">Hàng hóa</a></li>
+                        </ul>
+                    </div>
                     <!-- Phần content top -->
                     <div class="grid grid-cols-[3fr_1fr] ">
                         <div class="pr-[20px]">
@@ -323,7 +344,7 @@
                                             <h4 class="text-[20px] font-bold mb-2 hover:text-[#087cce]">Giá nhẫn trơn vượt vàng miếng</h4>
                                             <div class="grid grid-cols-[1fr_2fr]">
                                                 <img class="w-full" src="https://i1-kinhdoanh.vnecdn.net/2024/09/27/z540139436250638beba643f13f064-6556-9188-1727409476.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=NXywERJJna6C5gxchQ90Xg" alt="">
-                                                <span class="ml-[16px] block max-h-[192px]">Bí thư Thứ nhất, Chủ tịch nước Cuba Miguel Diaz-Canel Bermudez trao Huân chương Jose Marti cho Tổng Bí thư, Chủ tịch nước Tô Lâm, ghi nhận những đóng góp của ông đối với quan hệ hai nước.
+                                                <span class="ml-[16px] text-[14px] block max-h-[192px]">Bí thư Thứ nhất, Chủ tịch nước Cuba Miguel Diaz-Canel Bermudez trao Huân chương Jose Marti cho Tổng Bí thư, Chủ tịch nước Tô Lâm, ghi nhận những đóng góp của ông đối với quan hệ hai nước.
                                                     Trong lễ trao huân chương tại Cung Cách mạng Cuba ở thủ đô Havana tối 26/9 (sáng 27/9 giờ Hà Nội), lãnh đạo Cuba nêu bật những đóng góp của Tổng Bí thư, Chủ tịch nước Tô Lâm đối với sự nghiệp xây dựng và bảo vệ đất nước Việt Nam, cũng như những nỗ lực nhằm củng cố mối quan hệ song phương.</span>
                                             </div>
                                         </a>
@@ -335,7 +356,7 @@
                                             <h4 class="text-[20px] font-bold mb-2 hover:text-[#087cce]">Giá nhẫn trơn vượt vàng miếng</h4>
                                             <div class="grid grid-cols-[1fr_2fr]">
                                                 <img class="w-full" src="https://i1-kinhdoanh.vnecdn.net/2024/09/27/z540139436250638beba643f13f064-6556-9188-1727409476.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=NXywERJJna6C5gxchQ90Xg" alt="">
-                                                <span class="ml-[16px] block max-h-[192px]">Bí thư Thứ nhất, Chủ tịch nước Cuba Miguel Diaz-Canel Bermudez trao Huân chương Jose Marti cho Tổng Bí thư, Chủ tịch nước Tô Lâm, ghi nhận những đóng góp của ông đối với quan hệ hai nước.
+                                                <span class="ml-[16px] text-[14px] block max-h-[192px]">Bí thư Thứ nhất, Chủ tịch nước Cuba Miguel Diaz-Canel Bermudez trao Huân chương Jose Marti cho Tổng Bí thư, Chủ tịch nước Tô Lâm, ghi nhận những đóng góp của ông đối với quan hệ hai nước.
                                                     Trong lễ trao huân chương tại Cung Cách mạng Cuba ở thủ đô Havana tối 26/9 (sáng 27/9 giờ Hà Nội), lãnh đạo Cuba nêu bật những đóng góp của Tổng Bí thư, Chủ tịch nước Tô Lâm đối với sự nghiệp xây dựng và bảo vệ đất nước Việt Nam, cũng như những nỗ lực nhằm củng cố mối quan hệ song phương.</span>
                                             </div>
                                         </a>
@@ -347,7 +368,7 @@
                                             <h4 class="text-[20px] font-bold mb-2 hover:text-[#087cce]">Giá nhẫn trơn vượt vàng miếng</h4>
                                             <div class="grid grid-cols-[1fr_2fr]">
                                                 <img class="w-full" src="https://i1-kinhdoanh.vnecdn.net/2024/09/27/z540139436250638beba643f13f064-6556-9188-1727409476.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=NXywERJJna6C5gxchQ90Xg" alt="">
-                                                <span class="ml-[16px] block max-h-[192px]">Bí thư Thứ nhất, Chủ tịch nước Cuba Miguel Diaz-Canel Bermudez trao Huân chương Jose Marti cho Tổng Bí thư, Chủ tịch nước Tô Lâm, ghi nhận những đóng góp của ông đối với quan hệ hai nước.
+                                                <span class="ml-[16px] text-[14px] block max-h-[192px]">Bí thư Thứ nhất, Chủ tịch nước Cuba Miguel Diaz-Canel Bermudez trao Huân chương Jose Marti cho Tổng Bí thư, Chủ tịch nước Tô Lâm, ghi nhận những đóng góp của ông đối với quan hệ hai nước.
                                                     Trong lễ trao huân chương tại Cung Cách mạng Cuba ở thủ đô Havana tối 26/9 (sáng 27/9 giờ Hà Nội), lãnh đạo Cuba nêu bật những đóng góp của Tổng Bí thư, Chủ tịch nước Tô Lâm đối với sự nghiệp xây dựng và bảo vệ đất nước Việt Nam, cũng như những nỗ lực nhằm củng cố mối quan hệ song phương.</span>
                                             </div>
                                         </a>
