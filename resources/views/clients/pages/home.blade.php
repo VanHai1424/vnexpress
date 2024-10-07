@@ -1,4 +1,4 @@
-@extends('clients.master')
+@extends('clients.layouts.master')
 
 @section('content')
 <div class="mt-[28px] mx-auto w-[1100px]">

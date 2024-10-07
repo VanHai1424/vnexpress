@@ -1,3 +1,4 @@
+<!-- Phần header -->
 <header>
     <!-- Nav top -->
     <div class="border-b-[1px]">
@@ -5,7 +6,7 @@
             <!-- ul left -->
             <ul class="flex py-[16px]">
                 <li>
-                    <a href="">
+                    <a href="{{route('home')}}">
                         <img
                             src="https://s1.vnecdn.net/vnexpress/restruct/i/v928/v2_2019/pc/graphics/logo.svg"
                             alt=""
@@ -65,7 +66,7 @@
                     </div>
                 </li>
                 <li class="mx-[10px]">
-                    <a class="text-[#757575] py-[10px]" href="#"
+                    <a class="text-[#757575] py-[10px]" href="{{route('login')}}"
                         ><i class="fa-regular fa-user mr-[6px]"></i
                         >Đăng nhập</a
                     >
@@ -235,7 +236,7 @@
             </li>
             <li class=" relative group">
                 <a class="text-[14px]" href="#">Xe</a>
-                <ul class="absolute bg-white shadow-xl p-4 min-w-[160px] border-t-[1px] border-[#9f224e] transition-transform transform translate-y-9 opacity-0 group-hover:opacity-100 group-hover:translate-y-5">
+                <ul class="absolute right-0 bg-white shadow-xl p-4 min-w-[160px] border-t-[1px] border-[#9f224e] transition-transform transform translate-y-9 opacity-0 group-hover:opacity-100 group-hover:translate-y-5">
                     <li class="py-[6px]"><a class="block w-full hover:underline text-[14px]" href="">Chính trị</a></li>
                     <li class="py-[6px]"><a class="block w-full hover:underline text-[14px]" href="">Dân sinh</a></li>
                     <li class="py-[6px]"><a class="block w-full hover:underline text-[14px]" href="">Lao động - Việc làm</a></li>
