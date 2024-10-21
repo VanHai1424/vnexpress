@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,17 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('clients.pages.home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/detail', function () {
-    return view('clients.pages.detail');
-});
+Route::get('/read_by_category/{id}', [HomeController::class, 'getPostByCategory'])->name('category');
 
-Route::get('/read_by_category', function () {
-    return view('clients.pages.read_by_category');
-});
+Route::get('/detail/{id}', [HomeController::class, 'getDetail'])->name('detail');
+
+Route::post('/send_comment', [HomeController::class, 'sendComment'])->name('send-comment');
 
 Route::get('/login', function() {
     return view('clients.pages.login');
