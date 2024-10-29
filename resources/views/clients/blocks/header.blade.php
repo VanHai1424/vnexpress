@@ -32,9 +32,15 @@
                     </div>
                 </li>
                 <li class="mx-[10px]">
+                    @if (!Auth::user())
                     <a class="text-[#757575] py-[10px]" href="{{route('login')}}"
                         ><i class="fa-regular fa-user mr-[6px]"></i
                         >Đăng nhập</a
+                    >
+                    @endif
+                    <a class="text-[#757575] py-[10px]" href="{{route('logout')}}"
+                        ><i class="fa-regular fa-user mr-[6px]"></i
+                        >Đăng xuất</a
                     >
                 </li>
             </ul>

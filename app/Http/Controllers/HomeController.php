@@ -47,7 +47,7 @@ class HomeController extends Controller
         Comment::create([
             'content' => $req->content,
             'post_id' => $req->post_id,
-            'user_id' => 1
+            'user_id' => auth()->user()->id
         ]);
 
         $post = Post::findOrFail($req->post_id);
