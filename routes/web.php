@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,10 +23,16 @@ Route::get('/detail/{id}', [HomeController::class, 'getDetail'])->name('detail')
 
 Route::post('/send_comment', [HomeController::class, 'sendComment'])->name('send-comment');
 
-Route::get('/login', function() {
-    return view('clients.pages.login');
-})->name('login');
+// Auth
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'handleLogin'])->name('handle-login');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'handleRegister'])->name('handle-register');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/register', function() {
-    return view('clients.pages.register');
-})->name('register');
+// Admin
+Route::middleware(['isLogin', 'isAdmin'])->prefix('admin')->group(function() {
+    Route::get('/', function() {
+        return 'dashboard';
+    })->name('dashboard');
+});
