@@ -29,7 +29,12 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        Category::create([
+            'name' => $request->name,
+            'desc' => $request->desc
+        ]);
+
+        return back();
     }
 
     /**
@@ -51,16 +56,23 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(UpdateCategoryRequest $request, $id)
     {
-        //
+        $update = Category::findOrFail($id);
+        $update->update([
+            'name' => $request->name,
+            'desc' => $request->desc
+        ]);
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $del = Category::findOrFail($id);
+        $del->delete();
+        return back();
     }
 }
