@@ -14,9 +14,9 @@
                 <div class="">
                     <h2 class="text-[32px] font-bold mb-8">{{ $post->title }}</h2>
                     <span class="block">{{ $post->desc }}</span>
-                    <img class="w-full my-8" src="{{ $post->poster }}" alt="">
+                    <img class="w-full my-8" src="{{ asset('storage/upload/'. $post->poster) }}" alt="">
                     <div class="mb-[20px]">
-                        {{ $post->content }}
+                        {!! $post->content !!}
                     </div>
                 </div>
                 <!-- Phần bình luận -->

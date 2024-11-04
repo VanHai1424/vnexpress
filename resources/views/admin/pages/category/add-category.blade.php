@@ -15,14 +15,11 @@
                 <div class="mb-3">
                     <label class="form-label">Mô tả</label>
                     <input type="text" name="desc" class="form-control">
-                    @error('desc')
-                    <p class="text-danger">{{$message}}</p>
-                    @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Thêm</button>
             </form>
         </div>
-        <div class="w-75 mt-5">
+        <div class="w-100 mt-5">
             <h3>Danh sách danh mục</h3>
             <table class="table">
                 <thead>
@@ -36,16 +33,16 @@
                 <tbody>
                 @foreach($list as $item)
                     <tr>
-                        <th scope="row">{{$loop->index}}</th>
+                        <th scope="row">{{$loop->index + 1}}</th>
                         <td>{{$item->name}}</td>
                         <td>{{$item->desc}}</td>
-                        <td class="d-flex justify-content-start align-items-center">
+                        <td class="d-flex justify-content-start align-items-center gap-2">
+                            <a href="{{route('category.edit', $item->id)}}" class="btn btn-warning">Sửa</a>
                             <form action="{{route('category.destroy', $item->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-warning">Xoá</button>
+                                <button class="btn btn-danger">Xoá</button>
                             </form>
-                            <a href="{{route('category.edit', $item->id)}}" class="btn btn-primary">Sửa</a>
                         </td>
                     </tr>
                 @endforeach

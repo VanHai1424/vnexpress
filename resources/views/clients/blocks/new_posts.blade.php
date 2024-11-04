@@ -9,7 +9,7 @@
                 <h4 class="text-[20px] font-bold mb-2 hover:text-[#087cce]">{{$post->title}}</h4>
                 <div class="grid grid-cols-[1fr_2fr]">
                     <img class="w-full"
-                        src="{{$post->poster}}"
+                        src="{{ asset('storage/upload/'. $post->poster) }}"
                         alt="">
                     <span class="ml-[16px] block max-h-[192px]">{{$post->desc}}</span>
                 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -13,7 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        $categories = Category::all();
+        return view('admin.pages.post.add-post', compact('posts', 'categories'));
     }
 
     /**
@@ -21,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -29,7 +32,22 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $file = $request->file('poster');
+
+        $originName = $file->getClientOriginalName();
+        $fileName = pathinfo($originName, PATHINFO_FILENAME);
+        $extension = $file->getClientOriginalExtension();
+        $fileName = $fileName . '_' . time() . '.' . $extension;
+        $data['poster'] = $fileName;
+
+        $post = Post::create($data);
+        
+        if($post) {
+            $file->storeAs('public/upload/', $fileName);
+        }
+        return back();
     }
 
     /**
@@ -45,7 +63,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $posts = Post::all();
+        $categories = Category::all();
+        return view('admin.pages.post.update-post', compact('post', 'categories', 'posts'));
     }
 
     /**
@@ -53,7 +73,23 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $data = $request->all();
+
+        if($request->hasFile('poster')) {
+            $file = $request->file('poster');
+            $originName = $file->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+            $data['poster'] = $fileName;
+        }
+
+        $ok = $post->update($data);
+        
+        if($ok && $request->hasFile('poster')) {
+            $file->storeAs('public/upload/', $fileName);
+        }
+        return back();
     }
 
     /**
@@ -61,6 +97,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return back();
     }
 }
