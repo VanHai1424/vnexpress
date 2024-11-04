@@ -23,7 +23,6 @@ class UpdateCategoryRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'desc' => ['required']
         ];
     }
 
@@ -31,7 +30,6 @@ class UpdateCategoryRequest extends FormRequest
     {
         return [
             'name.required' => 'Vui lòng nhập tên danh mục',
-            'desc.required' => 'Vui lòng nhập mô tả'
         ];
     }
 }

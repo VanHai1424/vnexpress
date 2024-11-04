@@ -8,7 +8,7 @@
             <div class="flex ">
                 <a href="{{route('detail', $newPost->id)}}">
                     <img class="w-[520px] h-[312px] object-cover"
-                    src="{{$newPost->poster}}"
+                    src="{{ asset('storage/upload/'. $newPost->poster) }}"
                     alt="">
                 </a>
                 <div class="ml-[16px] max-w-[220px]">
@@ -25,7 +25,7 @@
                     <h4 class="hover:text-[#087cce] font-bold text-[15px] mb-[6px] h-[40px] overflow-hidden text-ellipsis">
                         {{$post->title}}
                     </h4>
-                    <img class="object-cover h-[200px] w-full" src="{{$post->poster}}" alt="">
+                    <img class="object-cover h-[200px] w-full" src="{{ asset('storage/upload/' . $post->poster) }}" alt="">
                 </div>
                 @endforeach
             </div>

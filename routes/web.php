@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,11 +37,10 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Admin
 Route::middleware(['isLogin', 'isAdmin'])->prefix('admin')->group(function() {
-    Route::get('/', function() {
-        return 'dashboard';
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('category', CategoryController::class);
+    Route::resource('post', PostController::class);
+    Route::resource('comment', CommentController::class);
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::resource('category', CategoryController::class);
-Route::resource('comment', CommentController::class);
+Route::post('/upload', [UploadController::class, 'upload'])->name('ckeditor.upload');
