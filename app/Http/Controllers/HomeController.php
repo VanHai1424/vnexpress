@@ -37,6 +37,9 @@ class HomeController extends Controller
 
     public function getDetail($id) {
         $post = Post::findOrFail($id);
+        if($post) {
+            $post->increment('view');
+        }
         $category = $post->category;
         $comments = $post->comments()->latest()->take(10)->get();
 
