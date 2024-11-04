@@ -13,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $list = Category::all();
+        return view('admin.pages.category.add-category', compact('list'));
     }
 
     /**
@@ -48,9 +49,11 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $list = Category::all();
+        $item = Category::findOrFail($id);
+        return view('admin.pages.category.update-category', compact('item', 'list'));
     }
 
     /**

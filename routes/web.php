@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +39,7 @@ Route::middleware(['isLogin', 'isAdmin'])->prefix('admin')->group(function() {
         return 'dashboard';
     })->name('dashboard');
 });
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::resource('category', CategoryController::class);
+Route::resource('comment', CommentController::class);
