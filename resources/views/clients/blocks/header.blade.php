@@ -37,11 +37,12 @@
                         ><i class="fa-regular fa-user mr-[6px]"></i
                         >Đăng nhập</a
                     >
-                    @endif
+                    @else
                     <a class="text-[#757575] py-[10px]" href="{{route('logout')}}"
                         ><i class="fa-regular fa-user mr-[6px]"></i
                         >Đăng xuất</a
                     >
+                    @endif
                 </li>
             </ul>
         </div>

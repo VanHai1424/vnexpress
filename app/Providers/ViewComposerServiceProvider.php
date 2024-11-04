@@ -24,7 +24,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('clients.blocks.sidebar', function ($view) {
-            $mostViewPosts = Post::whereDate('created_at', Carbon::today())
+            $mostViewPosts = Post::whereDate('updated_at', Carbon::today())
             ->orderBy('view', 'desc')
             ->take(5)
             ->get();
