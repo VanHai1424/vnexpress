@@ -11,9 +11,9 @@ class HomeController extends Controller
 {
     public function index() {
         $newPost = Post::latest()->first();
-        
-        $relatedPosts = $newPost->category->posts() 
-        ->where('id', '!=', $newPost->id) 
+
+        $relatedPosts = $newPost->category->posts()
+        ->where('id', '!=', $newPost->id)
         ->latest()
         ->take(3)
         ->get();
@@ -27,7 +27,7 @@ class HomeController extends Controller
         $newPost = $category->posts()->latest()->first();
 
         $relatedPosts = $newPost->category->posts()
-        ->where('id', '!=', $newPost->id) 
+        ->where('id', '!=', $newPost->id)
         ->latest()
         ->take(3)
         ->get();

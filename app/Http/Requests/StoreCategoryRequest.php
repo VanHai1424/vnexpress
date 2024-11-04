@@ -26,4 +26,11 @@ class StoreCategoryRequest extends FormRequest
             'desc' => ['required']
         ];
     }
+    public function messages()
+    {
+        return [
+            'name.required' => 'Vui lòng nhập tên danh mục',
+            'desc.required' => 'Vui lòng nhập mô tả'
+        ];
+    }
 }

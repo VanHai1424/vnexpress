@@ -13,7 +13,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $list = Comment::all();
+        return view('admin.pages.comment.list-comment', compact('list'));
     }
 
     /**
@@ -59,8 +60,10 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comment $comment)
+    public function destroy($id)
     {
-        //
+        $del = Comment::findOrFail($id);
+        $del->delete();
+        return back();
     }
 }
