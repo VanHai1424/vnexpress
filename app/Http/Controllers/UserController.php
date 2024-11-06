@@ -13,7 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('admin.pages.user.add-user',compact('users'));
     }
 
     /**
@@ -29,7 +30,9 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        //
+        $data = $request->all();
+        User::create($data);
+        return back();
     }
 
     /**
@@ -45,7 +48,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('admin.pages.user.update-user',compact('user'));
     }
 
     /**
@@ -53,7 +56,9 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $data = $request->all();
+        $user -> update($data);
+        return back()->with('success','Cập nhật thành công!');
     }
 
     /**
@@ -61,6 +66,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return back()->with('success','Xóa thành công!');
     }
 }

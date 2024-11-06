@@ -26,6 +26,16 @@
                 <a class="nav-link" href="{{route('post.index')}}">Danh sách bài viết</a>
             </nav>
         </div>
+        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages2" aria-expanded="false" aria-controls="collapsePages">
+            <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
+            User
+            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="collapsePages2" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+                <a class="nav-link" href="{{route('user.index')}}">Danh sách người dùng</a>
+            </nav>
+        </div>
         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
             Comment
