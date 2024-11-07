@@ -47,7 +47,7 @@ class PostController extends Controller
         if($post) {
             $file->storeAs('public/upload/', $fileName);
         }
-        return back();
+        return back()->with('msg', 'Thêm mới thành công');
     }
 
     /**
@@ -89,7 +89,7 @@ class PostController extends Controller
         if($ok && $request->hasFile('poster')) {
             $file->storeAs('public/upload/', $fileName);
         }
-        return back();
+        return back()->with('msg', 'Cập nhật thành công');
     }
 
     /**
@@ -98,6 +98,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return back();
+        return redirect()->route('post.index')->with('msg', 'Xóa thành công');
     }
 }

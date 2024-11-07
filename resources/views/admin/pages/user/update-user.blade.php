@@ -2,15 +2,12 @@
 @section('content')
     <main>
         <div class="container-fluid px-4">
-            @if (session()->has('success'))
-                <div class="mt-3 alert alert-danger">
-                    {{ session()->get('success') }}
+            @if (session()->has('msg'))
+                <div class="mt-3 alert alert-success">
+                    {{ session()->get('msg') }}
                 </div>
             @endif
             <h1 class="mt-2">Update User</h1>
-            <a href="{{ route('user.index') }}" class="btn btn-secondary mb-2">
-                <i class="fa-solid fa-arrow-left me-2"></i>Quay lại trang danh sách
-            </a>
             <form action="{{ route('user.update', $user->id) }}" method="post" enctype="multipart/form-data"
                 class="d-flex gap-5">
                 @method('PUT')
@@ -50,20 +47,39 @@
                     <button type="submit" class="btn btn-primary">Cập nhật</button>
                 </div>
             </form>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($users as $item)
+                            <tr>
+                                <td>{{ $loop->index + 1 }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->email }}</td>
+                                <td>{{ $item->role }}</td>
+                                <td class="d-flex justify-content-start align-items-center gap-2">
+                                    <a href="{{ route('user.edit', $item->id) }}" class="btn btn-warning">Sửa</a>
+                                    <form action="{{ route('user.destroy', $item->id) }}" method="post" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa ?')">Xoá</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </main>
-@endsection
-
-@section('script')
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#body'), {
-                ckfinder: {
-                    uploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}"
-                }
-            })
-            .catch(error => {
-                console.error('Lỗi khi khởi tạo CKEditor:', error);
-            });
-    </script>
 @endsection

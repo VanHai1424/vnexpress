@@ -2,6 +2,11 @@
 @section('content')
 <main>
     <div class="container-fluid px-4">
+        @if (session()->has('msg'))
+            <div class="mt-3 alert alert-success">
+                {{ session()->get('msg') }}
+            </div>
+        @endif
         <h1 class="mt-4">Update Post</h1>
         <form action="{{ route('post.update', $post->id) }}" method="post" enctype="multipart/form-data" class="d-flex gap-5">
             @csrf
