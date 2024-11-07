@@ -35,7 +35,7 @@ class CategoryController extends Controller
             'desc' => $request->desc
         ]);
 
-        return back();
+        return back()->with('msg', 'Thêm mới thành công');
     }
 
     /**
@@ -66,7 +66,7 @@ class CategoryController extends Controller
             'name' => $request->name,
             'desc' => $request->desc
         ]);
-        return back();
+        return back()->with('msg', 'Cập nhật thành công');
     }
 
     /**
@@ -76,6 +76,6 @@ class CategoryController extends Controller
     {
         $del = Category::findOrFail($id);
         $del->delete();
-        return back();
+        return redirect()->route('category.index')->with('msg', 'Xóa thành công');
     }
 }

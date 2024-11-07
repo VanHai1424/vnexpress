@@ -64,6 +64,6 @@ class CommentController extends Controller
     {
         $del = Comment::findOrFail($id);
         $del->delete();
-        return back();
+        return redirect()->route('comment.index')->with('msg', 'Xóa thành công');
     }
 }

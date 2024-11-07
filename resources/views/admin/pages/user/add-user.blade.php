@@ -2,6 +2,11 @@
 @section('content')
 <main>
     <div class="container-fluid px-4">
+        @if (session()->has('msg'))
+            <div class="mt-3 alert alert-success">
+                {{ session()->get('msg') }}
+            </div>
+        @endif
         <h1 class="mt-4">Add User</h1>
         <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data" class="d-flex gap-5">
             @csrf
@@ -61,7 +66,7 @@
                             <td>{{ $item->role }}</td>
                             <td class="d-flex justify-content-start align-items-center gap-2">
                                 <a href="{{ route('user.edit', $item->id) }}" class="btn btn-warning">Sửa</a>
-                                <form action="{{ route('user.destroy', $item->id) }}" method="post">
+                                <form action="{{ route('user.destroy', $item->id) }}" method="post" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa ?')">Xoá</button>
@@ -76,17 +81,3 @@
     </div>
 </main>
 @endsection
-
-@section('script')
-<script>
-    ClassicEditor
-        .create(document.querySelector('#body'), {
-            ckfinder: {
-                uploadUrl: "{{ route('ckeditor.upload', ['_token'=>csrf_token()]) }}"
-            }
-        })
-        .catch(error => {
-            console.error('Lỗi khi khởi tạo CKEditor:', error);
-        });
-</script>
-@endsection 

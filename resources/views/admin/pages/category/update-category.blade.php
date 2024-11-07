@@ -1,6 +1,10 @@
 @extends('admin.layouts.main')
 @section('content')
-
+        @if (session()->has('msg'))
+            <div class="mt-3 alert alert-success">
+                {{ session()->get('msg') }}
+            </div>
+        @endif
         <div class="w-50">
             <h3>Chỉnh sửa danh mục</h3>
             <form action="{{route('category.update', $item->id)}}" method="post">
@@ -39,7 +43,7 @@
                         <td>{{$i->desc}}</td>
                         <td class="d-flex justify-content-start align-items-center gap-2">
                             <a href="{{route('category.edit', $i->id)}}" class="btn btn-warning">Sửa</a>
-                            <form action="{{route('category.destroy', $i->id)}}" method="post">
+                            <form action="{{route('category.destroy', $i->id)}}" method="post" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">Xoá</button>

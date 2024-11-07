@@ -32,7 +32,7 @@ class UserController extends Controller
     {
         $data = $request->all();
         User::create($data);
-        return back();
+        return back()->with('msg', 'Thêm mới thành công');
     }
 
     /**
@@ -48,7 +48,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.pages.user.update-user',compact('user'));
+        $users = User::all();
+        return view('admin.pages.user.update-user',compact('user', 'users'));
     }
 
     /**
@@ -58,7 +59,7 @@ class UserController extends Controller
     {
         $data = $request->all();
         $user -> update($data);
-        return back()->with('success','Cập nhật thành công!');
+        return back()->with('msg', 'Cập nhật thành công');
     }
 
     /**
@@ -67,6 +68,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return back()->with('success','Xóa thành công!');
+        return redirect()->route('user.index')->with('msg', 'Xóa thành công');
     }
 }

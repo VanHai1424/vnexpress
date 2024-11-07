@@ -2,6 +2,11 @@
 @section('content')
 <main>
     <div class="container-fluid px-4">
+        @if (session()->has('msg'))
+            <div class="mt-3 alert alert-success">
+                {{ session()->get('msg') }}
+            </div>
+        @endif
         <h1 class="mt-4">Add Post</h1>
         <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data" class="d-flex gap-5">
             @csrf
@@ -70,7 +75,7 @@
                             <td>{{ $item->category->name }}</td>
                             <td class="d-flex justify-content-start align-items-center gap-2">
                                 <a href="{{ route('post.edit', $item->id) }}" class="btn btn-warning">Sửa</a>
-                                <form action="{{ route('post.destroy', $item->id) }}" method="post">
+                                <form action="{{ route('post.destroy', $item->id) }}" method="post" >
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa ?')">Xoá</button>
